@@ -43,7 +43,7 @@
         greetings = `hello`;
         
         // 탈출 코드 (\n, \t)도 사용 가능
-        let show = '안녕 띄고 \n 출력'
+        let show = '안녕 띄고 \n출력'
         let tag = `<ul>
         <li>
             <a href="#">HOME</a>
@@ -65,7 +65,15 @@
 
         console.log('=======================');
 
-        
+        // undefined
+        let aa;
+        // 아직 초기화(할당)되지 않은 변수는 
+        // 암묵적으로 undefined로 설정됨
+        console.log(aa);
+
+        // null은 사용자가 의도적으로 값을 비운 상태
+        let bb = null;
+        console.log(bb);
         
         
 

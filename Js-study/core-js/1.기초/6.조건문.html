@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // prompt는 브라우저에 입력창을 제공.
+        // 단, 리턴타입은 문자열임.
+        // +를 붙이면 number로 리턴됨.
+        let point = + prompt('점수를 입력하세요. ');
+        console.log(point);
+        console.log(typeof point);
+
+        // 브라우저에 출력문을 띄움.
+        alert(`당신의 점수는 ${point}점!`);
+        
+        if(point >= 70){
+            alert('합격!');
+        }
+        else if(point >= 50){
+            alert('재시험 대상자');        }
+        else{
+            alert('불합격');
+        }
+        
+        
+
+    </script>
+</body>
+</html>

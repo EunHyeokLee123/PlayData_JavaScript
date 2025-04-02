@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES7 이후 출시된 거듭제곱 연산자
+        console.log(3**4);
+
+        // 증감연산자 ++, --는 Java와 동일
+        // 전위,후위 연산도 동일
+        
+        // 비교 연산자
+        const a = 5, b = '5';
+        // ==, 값이 같으면(타입 상관없이)
+        // 암묵적으로 형변환을 자동으로 해서 비교함.
+        console.log(a==b);
+        // ===, 값과 타입까지 같아야 true
+        console.log(a===b);
+        
+        console.log('=======================');
+
+        // 빈 문자열이 아니라서 false임
+        console.log('0' == '');
+        // 0과 ''는 둘다 false로 인식해서 true가 나옴.
+        console.log(0 == '');
+        // '0'을 0으로 형변환 후 비교
+        console.log(0=='0');
+        // 논리형은 자동형변환 안 일어남.
+        console.log(false=='false');
+        // ==은 결과가 예측이 안될 수 있어서
+        // ===을 사용하는 것이 좋음
+
+        // 일치 비교(===)은 NaN만 주의하면 됨.
+        // NaN은 자신과 일치하지 않는 유일한 값임.
+        // (==)도 false로 리턴됨.
+        console.log(NaN === NaN); // false
+        
+        // 문자열 비교는 equals가 아닌 ===으로 비교 가능
+        console.log('apple' === 'apple'); // true
+
+        
+        
+        
+        
+        
+
+
+    </script>
+</body>
+</html>
