@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const userList = [
+        {
+          account: 'abc1234',
+          userName: '대길이',
+          job: '추노',
+          address: '서울',
+          hobbies: ['수영', '축구', '테니스'],
+        },
+        {
+          account: 'banana',
+          userName: '빠나나',
+          job: '과일',
+          address: '서울',
+          hobbies: ['푸드파이팅', '테니스'],
+        },
+        {
+          account: 'park1234',
+          userName: '주차왕',
+          job: '발렛파킹',
+          address: '경기',
+          hobbies: ['족구', '축구', '테니스', '영화감상'],
+        },
+        {
+          account: 'fire',
+          userName: '불꽃남자카리스마',
+          job: '게이머',
+          address: '서울',
+          hobbies: ['독서', '테니스'],
+        },
+      ];
+
+      // 요구사항: 회원정보 중에 취미가 딱 2개인 사람들만 추출해서 필터링해줘!
+      // 서울사람들을 필터링해줘
+      // 서울 살면서 직업이 게이머인 사람을 필터링해줘
+
+      function filterPeople(filter){
+            const result =[];
+            for(let tmp of userList){
+                if(filter(tmp)){
+                    result.push(tmp);
+                }
+            }
+            return result;
+      };
+
+      // 취미가 2개인 사람
+      const re1 = filterPeople(p=> p.hobbies.length === 2);
+      console.log(re1);
+      // 서울사람
+      console.log(
+        filterPeople(p=>p['address'] === '서울')
+      );
+      // 서울사람이면서 직업이 게이머인 사람
+      console.log(
+        filterPeople(p=>p['address'] === '서울' &&
+            p['job'] === '게이머'
+        )
+      );
+      
+      
+
+    </script>
+</body>
+</html>

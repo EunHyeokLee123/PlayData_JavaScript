@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 정수 n을 전달하면 1부터 n까지의 모든 짝수를 출력하는 함수
+        function showNumber(n, callback){
+            for(let i=1;i<=n;i++){
+                // 동작을 파라미터화
+                if(callback(i)){
+                    console.log(i); 
+                }
+            }
+        };
+
+        // 파라미터화한 동작을 함수형태로 함수의 매개변수로 넣음
+        //showNumber(81, n => n % 5 == 0 && n % 10 != 0);
+
+      
+        
+
+        // showNumber(43, function(n){
+        //     return n%2==0;
+        // });
+        showNumber(43, n => n % 2 == 0 && 
+        n % 4 != 0);
+      
+        console.log('=======================');
+        // 1~ 200 에서 5의 배수이면서 10의 배수가 아닌 수를 출력
+        showNumber(200, (n) => n % 5 == 0 && n % 10 != 0);
+
+        console.log('========================');
+
+        function calculate(n1, n2, option){
+            console.log('난 계산기');
+            return option(n1, n2);
+        }
+
+        console.log(calculate(10, 55, (a,b)=>a*b));
+                
+
+
+    </script>
+</body>
+</html>
