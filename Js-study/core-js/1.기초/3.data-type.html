@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>
+            <a href="#">HOME</a>
+        </li>
+    </ul>
+
+    <script>
+        const integer = 100;
+        const float = 3.14;
+
+        // 타입확인용 키워드 typeof
+        console.log(typeof integer);
+        console.log(typeof float);
+
+        // 에러는 발생하지 않지만
+        // Infinity는 활용하기 힘든 상징적인 값이기에
+        // 왠만하면 사용하지 말아라.
+        console.log(30 / 0);
+
+        console.log(10 /4); // 2.5
+        
+        // 에러는 아니지만 NaN을 출력해줌
+        // Not a Number(숫자로 표현 불가능함을 의미)
+        // 왠만하면 사용하지 말아라.
+        console.log(30 / '메롱');
+        
+        console.log('========================');
+
+        // "", ''를 구분하지 않음.
+        let greetings = "안녕";
+        greetings = '안녕'; // 주로 홑따옴표를 사용함.
+        // ``도 가능함.
+        // ``는 주로 템플릿 리터럴 문법 적용시 사용함.
+        greetings = `hello`;
+        
+        // 탈출 코드 (\n, \t)도 사용 가능
+        let show = '안녕 띄고 \n 출력'
+        let tag = `<ul>
+        <li>
+            <a href="#">HOME</a>
+        </li>
+    </ul>`;
+        console.log(show);
+        console.log(tag);
+
+        const month = 12;
+        const day = 25;
+        const chris = '크리스마스';
+        console.log(month + '월'+ day + '일' + chris);
+        console.log(`${month}월 ${day}일은 ${chris}입니다.`);
+
+        // 템플릿 리터럴 ``으로 감싼 문자열
+        // 공백과 들여쓰기, 줄 개행등을 모두 문자열로 인정함
+        // 포맷팅 방식도 제공함.
+        
+
+        console.log('=======================');
+
+        
+        
+        
+
+
+        
+        
+    </script>
+</body>
+</html>

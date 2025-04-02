@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var의 문제점
+        // 1. 변수의 중복 선언을 암묵적으로 허용
+        var x = 10;
+        var x = "55";
+        console.log(x);
+
+        // 2. 블록 레벨 스코프를 지원하지 않음.
+        var name = "홍길동";
+        if(true){
+            // if문 안에서의 선언된 변수는
+            // if문 종료 시 삭제되야 하지만
+            var name = "김친절"
+        }
+        // 삭제되지 않음.
+        console.log(name);
+        
+        // 3. 변수 호이스팅
+        z = 100;
+        console.log(z);
+        // 선언을 나중에 해도 문제 없게 실행됨.
+        var z;
+
+        
+    </script>
+</body>
+</html>
