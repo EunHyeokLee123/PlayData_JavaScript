@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <span class="msg"></span>
+
+    <input type="checkbox" id="agree">동의
+
+    <script>
+        // 문서 전체에 이벤트 핸들러 등록
+        // document.addEventListener('click', (e) =>{
+        //     console.log('이벤트 발생!');
+        //     console.log(e);
+        //     document.querySelector('.msg').textContent =
+        //     `x좌표는 ${e.offsetX}, y좌표는 ${e.offsetY}`;
+        // });
+        
+        const $agree = document.getElementById('agree');
+        // input타입은 click보다는 change이벤트 타입을 사용함
+        // change: 내용에 변화가 있음을 감지
+        $agree.addEventListener('change', (e) => {
+            // 실제 이벤트가 발생한 요소 e.target
+            // console.log(e.target);
+            
+            // 체크박스, radiobutton의 체크 유무를 확인하는 프로퍼티
+            if(e.target.checked){
+                alert('동의하셨습니다.');
+            }else{
+                alert('동의 취소함??');
+            }
+        });
+
+
+    </script>
+</body>
+</html>
