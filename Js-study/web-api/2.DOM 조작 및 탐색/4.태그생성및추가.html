@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="fruits">
+        <li>사과</li>
+    </ul>
+
+    <script>
+        // 새로운 태그 생성
+        const $fruits = document.createElement('li');
+
+        // 텍스트 추가
+        $fruits.textContent = '바나나';
+
+        // ul에 추가 
+        // appendChild: 맨 끝에 요소 추가
+        document.getElementById('fruits').appendChild($fruits);
+
+        // 태그 이름과 텍스트를 전달받으면 태그를 생성해주는 함수
+        // 매개변수에 기본값을 세팅가능
+        function createTag(tagName='div', option){
+            const $newTag = document.createElement(tagName);
+            if(option.text){
+                $newTag.textContent = option.text;
+            }
+            return $newTag;
+        };
+        // 태그를 추가해주는 함수
+        function append($parent, tagName, option){
+            $parent.appendChild(createTag(tagName, option));
+        };
+
+        append(document.getElementById('fruits'), 'li', {text: '오렌지'});
+        append(document.getElementById('fruits'), 'li', {text: '망고'});
+        append(document.getElementById('fruits'), 'li', {text: '복숭아'});
+        append(document.getElementById('fruits'), 'li', {text: '수박'});
+        
+
+        const $ul = document.getElementById('fruits');
+        console.log($ul);
+        
+
+    </script>
+
+</body>
+</html>
