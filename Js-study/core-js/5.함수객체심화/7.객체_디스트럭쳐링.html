@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const employee = {
+            empName:'뽀로로',
+            age:10,
+            hireDate: '2020-01-30',
+            birthData: '2015-12-31'
+        };
+
+        // 배열은 [], 객체는 {} 사용하면 됨
+        const{empName, hireDate} = employee;
+        console.log(`name = ${empName}, hire:${hireDate}`);
+        
+        // 매개변수에서 객체 디스트럭쳐링
+        // 매개변수에 객체 디스트럭쳐링 형식을 기재해놓으면
+        function foo({ empName, age }) {
+        console.log(`내 이름은 ${empName}입니다.`);
+        console.log(`나이는 ${age}살 입니다.`);
+      }
+      // 함수 호출할 때, 그냥 객체를 넣으면 알아서 디스트럭쳐링한
+      // 객체를 만들어서 함수가 사용함.
+      foo(employee);
+
+      const divStyle = {
+        'font-size': '18px',
+        'background-color': 'red'
+      };
+
+      
+
+
+    </script>
+</body>
+</html>
