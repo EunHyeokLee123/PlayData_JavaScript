@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="f-item">사과</li>
+        <li id="banana" class="f-item">바나나</li>
+        <li class="f-item">포도</li>
+        <li class="f-item">복숭아</li>
+    </ul>
+
+    <script>
+        // 관례상 요소 노드 취득하는 객체는 $를 붙여서 요소를 의미한다.
+        const $fruits = document.getElementById('fruits');
+        console.log($fruits);
+        const $banana = document.getElementById('banana');
+        console.log($banana);
+        // 요소를 취득한 객체로 html요소의 내용을 변경할 수 있음.
+        $banana.textContent = '버네이너';
+
+        // 클래스 추가 가능
+        $banana.classList.add('monkey');
+
+        // 스타일 변동가능
+        $banana.style.fontStyle = 'italic';
+
+        
+
+    </script>
+
+</body>
+</html>
