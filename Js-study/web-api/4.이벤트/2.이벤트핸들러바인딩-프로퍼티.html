@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+          width: 100px;
+          height: 100px;
+          background: orange;
+          margin: 20px;
+        }
+        .green {
+          background: yellowgreen;
+          font-size: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .red {
+          background: red;
+        }
+      </style>
+</head>
+<body>
+    
+    <div id="b1" class="box"></div>
+    <div id="b2" class="box green"></div>
+    <div id="b3" class="box red"></div>
+
+    <script>
+        
+        // 프로퍼티 방식
+        // 태그가 아니라 script에서만 이벤트를 처리함.
+
+        function sayGoodByeHandler(){
+            alert('바이바이ㅠㅠ');
+        }
+
+        document.getElementById('b2').ondblclick
+        = sayGoodByeHandler;
+
+        const $b1 = document.getElementById('b1');
+        $b1.onclick = function(){
+            alert('하이루~~');
+        };
+
+        // 프로퍼티 방식의 단점
+        // 같은 타입의 이벤트에는 여러 핸들러를 등록할 수 없음.
+        const $b3 = document.getElementById('b3');
+        $b3.onclick = () =>{
+            alert('b3, 빨강이 클릭!!!');
+        };
+        $b3.onclick = sayGoodByeHandler;
+        // 순서대로 호출되는 것이 아니라
+        // 맨 마지막에 있는(마지막에 랜더링된)
+        // 이벤트 함수가 호출된다.
+
+    </script>
+
+</body>
+</html>

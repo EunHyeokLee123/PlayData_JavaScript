@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">버튼티비</button>
+
+    <script>
+        const $btn = document.getElementById('btn');
+
+        // 이벤트 핸들러
+        const helloHandler = () => alert('안녕~~');
+
+        // addEventListener('이벤트타입', 핸들러 -> 콜백)
+        $btn.addEventListener('click', helloHandler);
+        $btn.addEventListener('click', () => alert('이거까지??'));
+
+        // 2개를 등록하면 같은 이벤트타입이여도 다 호출됨.
+
+    </script>
+
+
+</body>
+</html>
