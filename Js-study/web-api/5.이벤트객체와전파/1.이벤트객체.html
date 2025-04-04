@@ -11,6 +11,11 @@
 
     <input type="checkbox" id="agree">동의
 
+    <hr>
+
+    <input type="text" id="input-text">
+    <p id="msg"></p>
+
     <script>
         // 문서 전체에 이벤트 핸들러 등록
         // document.addEventListener('click', (e) =>{
@@ -35,7 +40,25 @@
             }
         });
 
+        const $input = document.getElementById('input-text');
+        const $msg = document.getElementById('msg');
 
+        // 키보드 이벤트 keyup : 키를 누르고 떼는 순간 발생하는 이벤트 
+        $input.addEventListener('keyup', (e)=>{
+            // // input태그에 현재 입력되어 있는 값을 리턴
+            // console.log(`입력한 값을 보여주세요: ${e.target.value}`);
+            // // 현재 input태그에 누른 값을 아스키 코드로                             리턴
+            // console.log(`지금 누른 값: ${e.keyCode}`);
+            
+            // 현재 눌린 자판이 13(엔터키)니?
+            if(e.keyCode === 13){
+                $msg.textContent = e.target.value;
+                // 엔터를 누르면 사용자가 입력한 값을 지워줌.
+                e.target.value = '';
+            }
+        });
+
+        
     </script>
 </body>
 </html>
