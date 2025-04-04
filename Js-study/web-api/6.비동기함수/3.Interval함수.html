@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="start">시작</button>
+    <br><br>
+    <button id="stop">정지</button>
+    <p id="clock"></p>
+
+    <script>
+        const $clock = document.getElementById('clock');
+        let intervalTimer = null;
+        document.getElementById('start').addEventListener('click',
+            (e) =>{
+                if(intervalTimer) return;
+                // setTimeout과 매개변수가 같음
+                intervalTimer = setInterval(()=>{
+                    // 현재 시각을 가져오기
+                    const now = new Date();
+                    $clock.textContent = now.toLocaleTimeString();
+                }, 1000);
+            });
+        document.getElementById('stop').addEventListener('click',
+            ()=>{
+                clearInterval(intervalTimer);
+                intervalTimer = null;
+            });
+
+
+    </script>
+    
+</body>
+</html>
