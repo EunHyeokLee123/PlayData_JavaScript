@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+<button id="btn">네이버로 이동!</button>
+
+<script>
+    const $btn = document.getElementById('btn');
+
+    $btn.addEventListener('click', ()=>{
+        // location 객체는 현재 활성화 된 웹 페이지의 URL 정보를 포함하는
+        // window의 프로퍼티
+        console.log(location);
+
+        // location.href: 전체 URL이 포함된 문자열.
+        // 이 문자열이 변경된다면 변경된 새로운 페이지로 이동!
+        // location.href = 'https://www.naver.com';
+       
+        // 새로고침 함수: reload()
+        // location.reload();
+
+        // replace(URL): 현재 리소스를 대체하는 새로운 URL로 이동 
+        // replace로 이동하면 뒤로가기가 불가능함.
+        location.replace('https://www.naver.com');
+
+        history.back(); // 뒤로가기
+        history.go(-1); // 원하는 위치를 숫자로 이동, 음수는 뒤, 양수는 앞
+
+    });
+
+    const success = (position) =>{
+        console.log(position);
+        console.log(`현재 너의 위도는 ${position.coords.latitude}`);
+        console.log(`현재 너의 경도는 ${position.coords.longitude}`);
+    };
+
+    const failure = (error) =>{
+        alert('너의 위치 정보를 얻는데 실패했음. 승인하던지');
+        console.log(error);
+        
+    };
+
+    // JavaScript 문법, 일회성함수
+    // 함수 선언과 동시에 바로 호출함. 즉시실행호출문문
+    (function() {
+        // getCurrentPosition(위치 정보 승인 시 실행할 콜백함수,
+        // 위치 정보 승인 실패 시 실행할 콜백 함수)
+        navigator.geolocation.getCurrentPosition(success, failure);
+    })();
+    
+
+
+</script>
+
+
+
+</body>
+</html>
