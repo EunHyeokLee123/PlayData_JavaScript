@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="show">서버 요청!</button>
+
+
+    <script>
+        document.getElementById('show').addEventListener('click', (e)=>{
+            // 버튼을 클릭하면
+            // 1. 두번째 회원을 조회
+            // 2. 두번째 회원이 작성한 글 목록을 조회
+            // 3. 두번째 회원이 작성한 글 중 2번 글의 댓글을 조회
+
+            const url = 'https://jsonplaceholder.typicode.com';
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', `${url}/users`);
+            xhr.send();
+
+            xhr.onload = (e) =>{
+                const response = JSON.parse(xhr.response);
+                const userId = response[1].id;
+
+                const xhr1 = new XMLHttpRequest();
+
+                xhr1.open('GET', `${url}/users/${userId}/posts`);
+                xhr1.send();
+
+                xhr1.onload = () =>{
+                    const response = JSON.parse(xhr1.response);
+                    const bno = response[1].id;
+                    const xhr2 = new XMLHttpRequest();
+                    xhr2.open('GET', `${url}/comments?postId=${bno}`);
+                    xhr2.send();
+
+                    xhr2.onload = () =>{
+                        const comments = JSON.parse(xhr2.response);
+                        console.log(comments);
+                        
+                    };
+                }
+            };
+
+        });
+
+
+    </script>
+</body>
+</html>

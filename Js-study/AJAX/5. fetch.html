@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="show">서버 요청!</button>
+
+
+    <script>
+
+
+        document.getElementById('show').addEventListener('click', (e)=>{
+            // 버튼을 클릭하면
+            // 1. 두번째 회원을 조회
+            // 2. 두번째 회원이 작성한 글 목록을 조회
+            // 3. 두번째 회원이 작성한 글 중 2번 글의 댓글을 조회
+
+            const url = 'https://jsonplaceholder.typicode.com';
+           
+            // fetch라는 내장함수를 통해서 promise를 위함 함수 선언 없이
+            // 위와 같은 작업을 할 수 있음.
+
+            // fetch(요청 url, 요청 정보)
+            fetch(`${url}/users`)
+            .then(res => {
+                // promise가 전달한 응답 데이터를 꺼내자 
+                // json 데이터를 담은 promise를 한번 더 리턴
+                const json = res.json();
+                return json;    
+            })
+            .then(users => {
+                // 여기서 원하는 응답 데이터를 꺼내야 함.
+                // 꺼내서 원하는 결과의 promise를 리턴
+                return fetch(`${url}/users/${users[1].id}/posts`);
+            })
+            // fetch결과는 promise니 다시 json만 꺼내야함.
+            .then((postRes) => postRes.json())
+            .then((posts) => fetch(`${url}/comments?postId=${posts[1].id}`))
+            .then((comment) => comment.json())
+            .then((comment)=>console.log(comment))
+        });
+
+
+    </script>
+</body>
+</html>

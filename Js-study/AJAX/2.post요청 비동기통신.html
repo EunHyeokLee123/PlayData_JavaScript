@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="video">
+        <iframe
+          width="640"
+          height="360"
+          src="https://www.youtube.com/embed/phuiiNCxRMg"
+          title="aespa 에스파 &#39;Supernova&#39; MV"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+    <button id="load">서버에서 정보 불러오기</button>
+
+    <ul id="contents"></ul>
+
+    <div>글제목: <input type="text" id="title" /></div>
+    <div>글내용: <textarea id="content"></textarea></div>
+    <div>
+      <button id="add">등록</button>
+    </div>
+    <script>
+        const $btn = document.getElementById('add');
+        $btn.addEventListener('click', (e) => {
+            // 백엔드 api 서버(가정)
+            const url = 'https://jsonplaceholder.typicode.com';
+            
+            const xhr = new XMLHttpRequest();
+            // 글 등록 요청 -> 백엔드가 post 방식으로 보내라고 함.
+            // 조회같은 경우에는 url에 요청 정보를 보냈음.
+            // 글 등록은 등록 정보를 함께 전송해야 함. -> JSON 형식에 맞게
+            const payload = {
+                title: document.getElementById('title').value,
+                body: document.getElementById('content').value,
+                userId: 1
+            };
+            
+            
+           
+            // 백엔드와 사전에 약속된 전송 방식과
+            // 약속된 url로 요청, 응답을 처리한다.
+            xhr.open('POST', `${url}/posts`);
+
+            // 요청 헤더에 payload의 타입을 명시해야함.
+            xhr.setRequestHeader('content-type', 
+            'application/json'); // json 타입임을 명시
+
+            // 요청 전송(순수 자바스크립트 객체를 JSON으로 변환해서
+            // 보내야 함.)
+            xhr.send(JSON.stringify(payload));
+            
+            xhr.onload = () => {
+                console.log(xhr.response);
+                
+            };
+
+            
+            });
+
+
+
+    </script>
+
+</body>
+</html>
