@@ -20,23 +20,24 @@
      <script>
         const $plus = document.getElementById('plus');
         const $minus = document.getElementById('minus');
-        const $text = document.getElementById('result');
+        const $count = document.getElementById('result');
 
         const changValue = (type) => {
-          let currVal = Number($text.getAttribute('value'))
+          let currVal = Number($count.getAttribute('value'))
           if(type === 'plus'){
-            $text.setAttribute('value', 1 + currVal);
+            $count.value++;
             }
           else{
-            if($text.getAttribute('value') !== '0'){
-              $text.setAttribute('value', currVal - 1);
+            if($count.getAttribute('value') !== '0'){
+              $count.value--;
             }
             else{
+              alert('0 아래로는 못 내립니다.');
               return;
             }
           }
         };
-
+        
         $plus.addEventListener('click', ()=>changValue($plus.getAttribute('id')));
         $minus.addEventListener('click', ()=>changValue($minus.getAttribute('id')));
 

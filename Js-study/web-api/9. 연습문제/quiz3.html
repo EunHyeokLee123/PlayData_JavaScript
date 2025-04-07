@@ -39,13 +39,25 @@
        (X버튼 누를 시 이벤트 발생 -> X버튼을 품고 있는 부모 노드를 삭제)
        */
 
+       /* 1번 */
       document.querySelector('.btn1').addEventListener('click', (e) =>{
+        if(document.querySelector('.name-input').value.trim() === ''){
+          alert('이름을 입력하세요!');
+          return;
+        }
         document.querySelector('.name-title').innerText = 
-        document.querySelector('.name-input').value;
+        document.querySelector('.name-input').value + '님 안녕하세요!';
         document.querySelector('.name-input').style.display = 'none';
+        document.querySelector('.btn1').style.display = 'none';
       });
 
+
+
       document.querySelector('.btn2').addEventListener('click', (e) => {
+        if(document.querySelector('.todo-input').value.trim() === ''){
+          alert('할 일을 입력하세요!');
+          return;
+        }
         const $newLi = document.createElement('li');
         $newLi.innerText = document.querySelector('.todo-input').value;
         document.querySelector('.todo-input').value = '';
@@ -57,10 +69,11 @@
         $newLi.appendChild($xBtn);
       });
       
+      // li가 생성된 후, ul에 이벤트를 걸어서 이벤트 위임을 함.
       document.querySelector('.todo-list').addEventListener('click', (e)=>{
-        if(e.target.matches('button')){
-          const $tarLi = e.target.closest('.todo-list li');
-          $tarLi.remove();
+        if(e.target.matches('.todo-list > li > button')){
+          // e.target.closest('.todo-list li').remove();
+          document.querySelector('.todo-list').removeChild(e.target.parentNode);
         }
         else return;
       });

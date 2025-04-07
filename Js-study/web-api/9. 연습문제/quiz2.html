@@ -21,7 +21,13 @@
        //힌트) css의 display: none; 사용
 
       document.getElementById('hider').addEventListener('click', () => {
-        document.querySelector('.text').style.display = 'none';
+        document.querySelector('.text').classList.toggle('disappear');
+        if(document.querySelector('.text').classList.contains('disappear')){
+          document.getElementById('hider').innerText = '텍스트 보이기';
+        }
+        else{
+          document.getElementById('hider').innerText = '텍스트 숨기기';
+        }
       });
 
      </script>
