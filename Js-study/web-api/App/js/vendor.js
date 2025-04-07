@@ -15,12 +15,14 @@ const $logEntries = document.querySelector('.log-entries');
 
 
 // 현재 계산기에 그려질 숫자
-let currentResult = 0;
+// let currentResult = 0;
 
 // 로그를 모아놓을 배열
 const logArray = [];
 
-let seq = 0; // 로그 번호
+// let seq = 0; // 로그 번호
+
+// let 변수를 export하면 외부 모듈에서는 const로 인식하여 import한다.
 
 export {
     $userInput,
@@ -30,6 +32,5 @@ export {
     $divideBtn,
     $currentResultOutput,
     $currentCalculationOutput,
-    $logEntries,
-    currentResult, logArray, seq
+    $logEntries, logArray
   };
