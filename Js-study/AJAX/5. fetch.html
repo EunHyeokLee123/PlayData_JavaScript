@@ -36,12 +36,14 @@
                 // 꺼내서 원하는 결과의 promise를 리턴
                 return fetch(`${url}/users/${users[1].id}/posts`);
             })
-            // fetch결과는 promise니 다시 json만 꺼내야함.
+            // fetch결과는 promise니 다시 json만 꺼내야함.     
             .then((postRes) => postRes.json())
             .then((posts) => fetch(`${url}/comments?postId=${posts[1].id}`))
             .then((comment) => comment.json())
             .then((comment)=>console.log(comment))
         });
+
+        
 
 
     </script>

@@ -26,6 +26,21 @@
             // 백엔드 api 서버(가정)
             const url = 'https://jsonplaceholder.typicode.com';
             
+            // 아래의 내용을 fetch 버전으로 작성하자
+
+            fetch(`${url}/users/1/posts`)
+            .then(res => res.json())
+            .then(result => {
+                const $ul = document.getElementById('contents');
+                result.forEach(b => {
+                    const $newLi = document.createElement('li');
+                    $newLi.innerText = `# 글번호: ${b.id}, 제목: ${b.title}, 작성자 아이디: ${b.userId}`;
+                    $ul.appendChild($newLi);
+                });
+            });
+
+
+            /*
             const xhr = new XMLHttpRequest();
             // 요청 준비
             xhr.open('GET', `${url}/users/1/posts`);
@@ -55,7 +70,11 @@
                     $ul.appendChild($newLi);
                 }); 
 
-            };
+            };  */
+
+            
+
+            
 
         });
 

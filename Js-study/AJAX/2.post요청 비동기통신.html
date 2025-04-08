@@ -34,6 +34,7 @@
             // 백엔드 api 서버(가정)
             const url = 'https://jsonplaceholder.typicode.com';
             
+            
             const xhr = new XMLHttpRequest();
             // 글 등록 요청 -> 백엔드가 post 방식으로 보내라고 함.
             // 조회같은 경우에는 url에 요청 정보를 보냈음.
@@ -43,7 +44,20 @@
                 body: document.getElementById('content').value,
                 userId: 1
             };
-            
+
+            // get 이외의 요청 방식에서는 url과 함께 요청에 관련된 정보를
+            // 객체 형태로 전달하셔야 합니다. (method, headers, body)
+            fetch(`${url}/posts`, {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => console.log(data));
+
+            /*
             
            
             // 백엔드와 사전에 약속된 전송 방식과
@@ -61,7 +75,8 @@
             xhr.onload = () => {
                 console.log(xhr.response);
                 
-            };
+            };   */
+
 
             
             });
